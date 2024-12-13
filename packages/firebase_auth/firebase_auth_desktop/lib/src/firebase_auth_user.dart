@@ -16,7 +16,21 @@ import 'utils/desktop_utils.dart';
 class User extends UserPlatform {
   // ignore: public_member_api_docs
   User(FirebaseAuthPlatform auth, this._user)
-      : super(auth, MultiFactorDesktop(auth), PigeonUserDetails.decode(_user));
+      : super(
+            auth,
+            MultiFactorDesktop(auth),
+            PigeonUserDetails(
+                userInfo: PigeonUserInfo(
+                  uid: _user.uid,
+                  email: _user.email,
+                  displayName: _user.displayName,
+                  photoUrl: _user.photoURL,
+                  phoneNumber: _user.phoneNumber,
+                  isAnonymous: _user.isAnonymous,
+                  isEmailVerified: _user.emailVerified,
+                  refreshToken: _user.refreshToken,
+                ),
+                providerData: []));
 
   final auth_dart.User _user;
 

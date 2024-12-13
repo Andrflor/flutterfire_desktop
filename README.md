@@ -1,57 +1,41 @@
-# Firebase's Dart SDK
+# Firebase Auth for Linux
 
- <a href="https://invertase.link/discord">
-   <img src="https://img.shields.io/discord/295953187817521152.svg?style=flat-square&colorA=7289da&label=Chat%20on%20Discord" alt="Chat on Discord">
- </a>
+This repository is a fork of the original FlutterFire platform for desktop packages, updated to ensure linux compatibility with the following versions:
 
+- `firebase_auth`: ^5.3.4
+- `firebase_core`: ^3.8.1
+- `firebase_auth_desktop`: custom version from [flutterfire_desktop](https://github.com/Andrflor/flutterfire_desktop)
+- `firebase_core_desktop`: custom version from [flutterfire_desktop](https://github.com/Andrflor/flutterfire_desktop)
 
-The Dart SDK allows Flutter and Dart apps to consume Firebase services. 
+## Modifications
 
-It is an __early-stage, experimental__ pure-Dart implementation of Firebase SDKs, without wrapping the existing Android, iOS, web, or C++ SDKs. The initial work is focused on supporting Firebase for Linux and Windows platforms.
+This fork integrates changes to work seamlessly with the above versions, particularly addressing desktop platform support via the `firebase_auth_desktop` and `firebase_core_desktop` packages. It is specifically tailored to provide basic compatibility for `firebase_auth` on Linux systems.
 
-## Usage
+## Installation
 
-To use this plugin, add the following dependencies to your app's `pubspec.yaml` file, along with the main plugin:
+To use these specific versions in your Flutter project, add the following dependencies to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  firebase_auth: ^4.6.3
-  firebase_auth_desktop: ^0.1.2
-  firebase_core: ^2.0.0
-  firebase_core_desktop: ^0.1.2
+  firebase_auth: ^5.3.4
+  firebase_core: ^3.8.1
+  firebase_auth_desktop:
+      git:
+          url: https://github.com/Andrflor/flutterfire_desktop
+          path: packages/firebase_auth/firebase_auth_desktop/
+  firebase_core_desktop:
+      git:
+          url: https://github.com/Andrflor/flutterfire_desktop
+          path: packages/firebase_core/firebase_core_desktop/
 ```
 
-## Firebase App Initialization
+## Notes
 
-Unlike the Firebase Flutter SDK, the Firebase initialization is done from Dart code, which means no additional config files are required.
+- This fork is intended for developers who need to use `firebase_auth` and `firebase_core` with the specified versions, including desktop support.
+- It is particularly useful for providing basic authentication functionality on Linux platforms.
+- For more details about the original packages and features, refer to the official [FlutterFire documentation](https://firebase.flutter.dev/).
 
-### DEFAULT app
-To initialize the default app, provide only options without a name.
- ```dart
- await Firebase.initializeApp(
-   options: const FirebaseOptions(
-     apiKey: '...',
-     appId: '...',
-     messagingSenderId: '...',
-     projectId: '...',
-   )
- );
- ```
-### Secondary app
- ```dart
- await Firebase.initializeApp(
-   name: 'SecondaryApp',
-   options: const FirebaseOptions(
-     apiKey: '...',
-     appId: '...',
-     messagingSenderId: '...',
-     projectId: '...',
-   )
- );
- ```
+## Support
 
-## Contributing
+If you encounter any issues related to this fork, please create an issue in this repository, specifying the problem and the steps to reproduce it.
 
-This is a community project, contributions to help it progress faster are welcome:
-1. Before starting, please read the [contribution guide of FlutterFire](https://github.com/FirebaseExtended/flutterfire/blob/master/CONTRIBUTING.md).
-2. Refer to the [projects board](https://github.com/invertase/flutterfire_desktop/projects) to see the current progress & planned future work.

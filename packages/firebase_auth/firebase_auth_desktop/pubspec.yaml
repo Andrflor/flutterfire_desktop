@@ -2,7 +2,7 @@ name: firebase_auth_desktop
 description: Windows and Linux implementation of firebase_auth
 homepage: https://firebase.flutter.dev
 repository: https://github.com/invertase/flutterfire_desktop
-version: 1.0.2-flipper
+version: 1.2.0
 
 environment:
   sdk: '>=2.15.0 <3.0.0'
@@ -10,11 +10,9 @@ environment:
 
 dependencies:
   desktop_webview_auth: ^0.0.8
-  firebase_auth: 4.8.0
+  firebase_auth: ^5.3.4
   firebase_auth_dart: ^1.0.1
-  firebase_auth_platform_interface: ^6.17.0-flipper-version
-  # firebase_core: ^2.16.0
-  firebase_core: ^2.16.0
+  firebase_core: ^3.8.1
   firebase_core_dart: ^1.0.1
   flutter:
     sdk: flutter
@@ -25,7 +23,7 @@ dependency_overrides:
 
 dev_dependencies:
   async: ^2.8.1
-  firebase_core_platform_interface: 4.8.0
+  firebase_core_platform_interface: ^5.3.1
   flutter_test:
     sdk: flutter
   mockito: ^5.0.0
